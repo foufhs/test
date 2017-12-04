@@ -7,7 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DataLibrary.DataAccess;
 using DataLibrary;
+
 namespace UI
 {
     public partial class MainForm : Form
@@ -27,8 +29,11 @@ namespace UI
 
                 foreach (IDataConnection db in GlobalConfig.Connections)
                 {
-                    db.createData(model);
+                    db.CreatePerson(model);
                 }
+
+                nameBox.Text = "";
+                surnameBox.Text = "";
                
             }
             else
