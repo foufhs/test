@@ -6,6 +6,8 @@ namespace DataLibrary.DataAccess
 {
     public interface IDataConnection
     {
+        List<PersonData> GetPerson_All();
         PersonData CreatePerson(PersonData person);
+        
     }
 }

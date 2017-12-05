@@ -14,9 +14,31 @@ namespace UI
 {
     public partial class MainForm : Form
     {
+        private List<PersonData> people = new List<PersonData>();
+        private PersonData selectedPerson = new PersonData();
+
+        private void WireUpList()
+        {
+            peopleListBox.DataSource = people;
+            peopleListBox.DisplayMember = "Fullname";
+        }
+
+     
         public MainForm()
         {
             InitializeComponent();
+            LoadListData();
+            WireUpList();
+        }
+
+        private void LoadListData()
+        {
+            
+            foreach (IDataConnection db in GlobalConfig.Connections)
+            {
+                people = db.GetPerson_All();
+                
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -34,12 +56,11 @@ namespace UI
 
                 nameBox.Text = "";
                 surnameBox.Text = "";
-               
+                LoadListData();
+                WireUpList();
+
             }
-            else
-            {
-                MessageBox.Show("Invalid Form");
-            }
+            
 
         }
 

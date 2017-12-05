@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Text;
 using DataLibrary.DataAccess;
+using System.Linq;
 
 namespace DataLibrary.DataAccess
 {
@@ -26,6 +27,16 @@ namespace DataLibrary.DataAccess
                 return personData;
             
             }
+        }
+
+        public List<PersonData> GetPerson_All()
+        {
+            List<PersonData> output;
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("TestDB")))
+            {
+                output = connection.Query<PersonData>("dbo.spPerson_GetAll").ToList();
+            }
+            return output;
         }
     }
 }
