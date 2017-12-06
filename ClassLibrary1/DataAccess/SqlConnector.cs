@@ -29,6 +29,21 @@ namespace DataLibrary.DataAccess
             }
         }
 
+        public void DeletePerson(PersonData model)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("TestDB")))
+            {
+
+                var p = new DynamicParameters();
+                p.Add("@id", model.Id);
+                connection.Execute("dbo.spDeletePerson", p, commandType: CommandType.StoredProcedure);
+
+                
+               
+
+            }
+        }
+
         public List<PersonData> GetPerson_All()
         {
             List<PersonData> output;

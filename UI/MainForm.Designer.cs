@@ -40,15 +40,19 @@
             // 
             // nameBox
             // 
-            this.nameBox.Location = new System.Drawing.Point(121, 169);
+            this.nameBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(183)))));
+            this.nameBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.nameBox.Location = new System.Drawing.Point(121, 123);
             this.nameBox.Margin = new System.Windows.Forms.Padding(6);
             this.nameBox.Name = "nameBox";
-            this.nameBox.Size = new System.Drawing.Size(180, 33);
+            this.nameBox.Size = new System.Drawing.Size(180, 26);
             this.nameBox.TabIndex = 0;
             // 
             // surnameBox
             // 
-            this.surnameBox.Location = new System.Drawing.Point(121, 259);
+            this.surnameBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(183)))));
+            this.surnameBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.surnameBox.Location = new System.Drawing.Point(121, 211);
             this.surnameBox.Margin = new System.Windows.Forms.Padding(6);
             this.surnameBox.Name = "surnameBox";
             this.surnameBox.Size = new System.Drawing.Size(180, 33);
@@ -57,6 +61,7 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(182)))), ((int)(((byte)(50)))));
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(40)))), ((int)(((byte)(57)))));
             this.button1.Location = new System.Drawing.Point(121, 340);
@@ -71,7 +76,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(116, 138);
+            this.label1.Location = new System.Drawing.Point(116, 86);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(64, 25);
             this.label1.TabIndex = 4;
@@ -80,7 +85,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(116, 228);
+            this.label2.Location = new System.Drawing.Point(116, 176);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(88, 25);
             this.label2.TabIndex = 5;
@@ -90,12 +95,17 @@
             // 
             this.peopleListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.peopleListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(183)))));
+            this.peopleListBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.peopleListBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.peopleListBox.Font = new System.Drawing.Font("Segoe UI Semibold", 12.25F, System.Drawing.FontStyle.Bold);
             this.peopleListBox.FormattingEnabled = true;
             this.peopleListBox.ItemHeight = 21;
             this.peopleListBox.Location = new System.Drawing.Point(488, 123);
             this.peopleListBox.Name = "peopleListBox";
-            this.peopleListBox.Size = new System.Drawing.Size(287, 193);
+            this.peopleListBox.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
+            this.peopleListBox.Size = new System.Drawing.Size(287, 189);
+            this.peopleListBox.Sorted = true;
             this.peopleListBox.TabIndex = 6;
             // 
             // label3
@@ -111,15 +121,17 @@
             // 
             this.deleteBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.deleteBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(182)))), ((int)(((byte)(50)))));
+            this.deleteBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.deleteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deleteBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(40)))), ((int)(((byte)(57)))));
-            this.deleteBtn.Location = new System.Drawing.Point(540, 335);
+            this.deleteBtn.Location = new System.Drawing.Point(540, 340);
             this.deleteBtn.Margin = new System.Windows.Forms.Padding(6);
             this.deleteBtn.Name = "deleteBtn";
             this.deleteBtn.Size = new System.Drawing.Size(180, 44);
             this.deleteBtn.TabIndex = 8;
-            this.deleteBtn.Text = "Add";
+            this.deleteBtn.Text = "Delete";
             this.deleteBtn.UseVisualStyleBackColor = false;
+            this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
             // 
             // MainForm
             // 

@@ -72,5 +72,19 @@ namespace UI
             return output;
 
         }
+
+        private void deleteBtn_Click(object sender, EventArgs e)
+        {
+            PersonData model = (PersonData)peopleListBox.SelectedItem;
+            if (model != null)
+            {
+                foreach (IDataConnection db in GlobalConfig.Connections)
+                {
+                    db.DeletePerson(model);
+                }
+            }
+            LoadListData();
+            WireUpList();
+        }
     }
 }

@@ -8,6 +8,6 @@ namespace DataLibrary.DataAccess
     {
         List<PersonData> GetPerson_All();
         PersonData CreatePerson(PersonData person);
-        
+        void DeletePerson(PersonData model);
     }
 }
