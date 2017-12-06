@@ -5,6 +5,7 @@ using System.Data;
 using System.Text;
 using DataLibrary.DataAccess;
 using System.Linq;
+using DataLibrary;
 
 namespace DataLibrary.DataAccess
 {
@@ -29,19 +30,18 @@ namespace DataLibrary.DataAccess
             }
         }
 
-        public void DeletePerson(PersonData model)
+        public int DeletePerson(PersonData model)
         {
+            int numberOfRecords;
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("TestDB")))
             {
 
                 var p = new DynamicParameters();
                 p.Add("@id", model.Id);
-                connection.Execute("dbo.spDeletePerson", p, commandType: CommandType.StoredProcedure);
-
-                
-               
+                numberOfRecords = connection.Execute("dbo.spDeletePerson", p, commandType: CommandType.StoredProcedure);
 
             }
+            return numberOfRecords;
         }
 
         public List<PersonData> GetPerson_All()

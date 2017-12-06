@@ -17,11 +17,7 @@ namespace UI
         private List<PersonData> people = new List<PersonData>();
         private PersonData selectedPerson = new PersonData();
 
-        private void WireUpList()
-        {
-            peopleListBox.DataSource = people;
-            peopleListBox.DisplayMember = "Fullname";
-        }
+       
 
      
         public MainForm()
@@ -31,16 +27,22 @@ namespace UI
             WireUpList();
         }
 
-        private void LoadListData()
+        private void WireUpList()
         {
-            
-            foreach (IDataConnection db in GlobalConfig.Connections)
-            {
-                people = db.GetPerson_All();
-                
-            }
+            peopleListBox.DataSource = people;
+            peopleListBox.DisplayMember = "Fullname";
         }
 
+        private void LoadListData()
+        {         
+                people = GlobalConfig.Connections.GetPerson_All();         
+        }
+        
+        /// <summary>
+        /// Add Button Functionality
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
             if (ValidateForm())
@@ -49,11 +51,9 @@ namespace UI
                 model.Name = nameBox.Text;
                 model.Surname = surnameBox.Text;
 
-                foreach (IDataConnection db in GlobalConfig.Connections)
-                {
-                    db.CreatePerson(model);
-                }
-
+            
+                GlobalConfig.Connections.CreatePerson(model);
+                
                 nameBox.Text = "";
                 surnameBox.Text = "";
                 LoadListData();
@@ -64,6 +64,32 @@ namespace UI
 
         }
 
+
+        /// <summary>
+        /// Delete Button Functionality
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>        
+        private void deleteBtn_Click(object sender, EventArgs e)
+        {
+            PersonData model = (PersonData)peopleListBox.SelectedItem;
+            if (model != null)
+            {
+                var confirmResult = MessageBox.Show("Are you sure to delete this item ??",
+                                     "Confirm Delete!!",
+                                     MessageBoxButtons.YesNo);
+                if (confirmResult == DialogResult.Yes)
+                {
+                           
+                        GlobalConfig.Connections.DeletePerson(model).ToString();
+                }
+                
+                
+            }
+            LoadListData();
+            WireUpList();
+        }
+
         private bool ValidateForm()
         {
             bool output = true;
@@ -71,20 +97,6 @@ namespace UI
             if (surnameBox.Text.Length == 0) { output = false; }
             return output;
 
-        }
-
-        private void deleteBtn_Click(object sender, EventArgs e)
-        {
-            PersonData model = (PersonData)peopleListBox.SelectedItem;
-            if (model != null)
-            {
-                foreach (IDataConnection db in GlobalConfig.Connections)
-                {
-                    db.DeletePerson(model);
-                }
-            }
-            LoadListData();
-            WireUpList();
         }
     }
 }
