@@ -30,6 +30,21 @@ namespace DataLibrary.DataAccess
             }
         }
 
+        public void EditPerson(PersonData personData, string name, string surname)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("TestDB")))
+            {
+                var p = new DynamicParameters();
+                p.Add("@name", name);
+                p.Add("@surname", surname);
+                p.Add("@id", personData.Id);
+
+                connection.Execute("dbo.spPersonData_update", p, commandType: CommandType.StoredProcedure);
+               // return personData;
+
+            }
+        }
+
         public int DeletePerson(PersonData model)
         {
             int numberOfRecords;

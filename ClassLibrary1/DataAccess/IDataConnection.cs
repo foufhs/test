@@ -9,5 +9,6 @@ namespace DataLibrary.DataAccess
         List<PersonData> GetPerson_All();
         PersonData CreatePerson(PersonData person);
         int DeletePerson(PersonData model);
+        void EditPerson(PersonData model, string name, string surname);
     }
 }

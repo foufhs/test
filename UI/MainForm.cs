@@ -98,5 +98,27 @@ namespace UI
             return output;
 
         }
+        /// <summary>
+        /// Edit Button Functionality
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button2_Click(object sender, EventArgs e)
+        {
+            PersonData model = (PersonData)peopleListBox.SelectedItem;
+            if (model != null)
+            {
+                EditPersonForm editForm = new EditPersonForm(model);
+                //this.Hide();
+               //  button1.Enabled = false;
+                editForm.ShowDialog();
+                LoadListData();
+                WireUpList();
+               
+            }
+
+
+
+        }
     }
 }
