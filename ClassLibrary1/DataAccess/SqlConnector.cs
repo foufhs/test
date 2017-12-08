@@ -11,11 +11,11 @@ namespace DataLibrary.DataAccess
 {
     public class SqlConnector : IDataConnection
     {
-
+        private const string databaseInuse = "Remote";
 
         public PersonData CreatePerson(PersonData personData)
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("TestDB")))
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString(databaseInuse)))
             {
                 var p = new DynamicParameters();
                 p.Add("@name", personData.Name);
@@ -32,7 +32,7 @@ namespace DataLibrary.DataAccess
 
         public void EditPerson(PersonData personData, string name, string surname)
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("TestDB")))
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString(databaseInuse)))
             {
                 var p = new DynamicParameters();
                 p.Add("@name", name);
@@ -48,7 +48,7 @@ namespace DataLibrary.DataAccess
         public int DeletePerson(PersonData model)
         {
             int numberOfRecords;
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("TestDB")))
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString(databaseInuse)))
             {
 
                 var p = new DynamicParameters();
@@ -62,7 +62,7 @@ namespace DataLibrary.DataAccess
         public List<PersonData> GetPerson_All()
         {
             List<PersonData> output;
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("TestDB")))
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString(databaseInuse)))
             {
                 output = connection.Query<PersonData>("dbo.spPerson_GetAll").ToList();
             }

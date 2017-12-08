@@ -43,7 +43,7 @@ namespace UI
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void button1_Click(object sender, EventArgs e)
+        private void addButton(object sender, EventArgs e)
         {
             if (ValidateForm())
             {
@@ -103,7 +103,7 @@ namespace UI
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void button2_Click(object sender, EventArgs e)
+        private void editButton(object sender, EventArgs e)
         {
             PersonData model = (PersonData)peopleListBox.SelectedItem;
             if (model != null)

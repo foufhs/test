@@ -22,6 +22,7 @@ namespace UI
         public EditPersonForm(PersonData person)
         {
             InitializeComponent();
+            this.Text = "Editing :" + person.FullName;
             nameBox.Text = person.Name.ToString();
             surnameBox.Text = person.Surname.ToString();
             personToBeEdited = person;
