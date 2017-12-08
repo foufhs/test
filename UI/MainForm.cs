@@ -35,7 +35,7 @@ namespace UI
 
         private void LoadListData()
         {         
-                people = GlobalConfig.Connections.GetPerson_All();         
+            people = GlobalConfig.Connections.GetPerson_All();         
         }
         
         /// <summary>

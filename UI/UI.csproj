@@ -85,9 +85,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\ClassLibrary1\DataLibrary.csproj">
       <Project>{7f71dcdc-d268-4ead-a7f7-3b25edeccd41}</Project>
       <Name>DataLibrary</Name>

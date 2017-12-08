@@ -6,6 +6,8 @@ using System.Text;
 using DataLibrary.DataAccess;
 using System.Linq;
 using DataLibrary;
+using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace DataLibrary.DataAccess
 {
@@ -64,9 +66,20 @@ namespace DataLibrary.DataAccess
             List<PersonData> output;
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString(databaseInuse)))
             {
-                output = connection.Query<PersonData>("dbo.spPerson_GetAll").ToList();
+                try
+                {
+                    output = connection.Query<PersonData>("dbo.spPerson_GetAll").ToList();
+                    return output;
+                }
+                catch (SqlException)
+                {
+                    MessageBox.Show("Database Connection Failed!", "Initialization Error.");
+                    Environment.Exit(1);
+
+                }
+                return null;
             }
-            return output;
+            
         }
     }
 }
