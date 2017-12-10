@@ -38,13 +38,14 @@
             this.label3 = new System.Windows.Forms.Label();
             this.deleteBtn = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.LoadingText = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // nameBox
             // 
             this.nameBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(183)))));
             this.nameBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.nameBox.Location = new System.Drawing.Point(121, 123);
+            this.nameBox.Location = new System.Drawing.Point(213, 144);
             this.nameBox.Margin = new System.Windows.Forms.Padding(6);
             this.nameBox.Name = "nameBox";
             this.nameBox.Size = new System.Drawing.Size(180, 26);
@@ -54,7 +55,7 @@
             // 
             this.surnameBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(183)))));
             this.surnameBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.surnameBox.Location = new System.Drawing.Point(121, 211);
+            this.surnameBox.Location = new System.Drawing.Point(213, 232);
             this.surnameBox.Margin = new System.Windows.Forms.Padding(6);
             this.surnameBox.Name = "surnameBox";
             this.surnameBox.Size = new System.Drawing.Size(180, 33);
@@ -66,7 +67,7 @@
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(40)))), ((int)(((byte)(57)))));
-            this.button1.Location = new System.Drawing.Point(121, 340);
+            this.button1.Location = new System.Drawing.Point(213, 361);
             this.button1.Margin = new System.Windows.Forms.Padding(6);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(180, 44);
@@ -78,7 +79,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(116, 86);
+            this.label1.Location = new System.Drawing.Point(208, 107);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(64, 25);
             this.label1.TabIndex = 4;
@@ -87,7 +88,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(116, 176);
+            this.label2.Location = new System.Drawing.Point(208, 197);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(88, 25);
             this.label2.TabIndex = 5;
@@ -103,17 +104,17 @@
             this.peopleListBox.Font = new System.Drawing.Font("Segoe UI Semibold", 12.25F, System.Drawing.FontStyle.Bold);
             this.peopleListBox.FormattingEnabled = true;
             this.peopleListBox.ItemHeight = 21;
-            this.peopleListBox.Location = new System.Drawing.Point(488, 123);
+            this.peopleListBox.Location = new System.Drawing.Point(580, 144);
             this.peopleListBox.Name = "peopleListBox";
             this.peopleListBox.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.peopleListBox.Size = new System.Drawing.Size(287, 189);
+            this.peopleListBox.Size = new System.Drawing.Size(287, 105);
             this.peopleListBox.Sorted = true;
             this.peopleListBox.TabIndex = 6;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(483, 86);
+            this.label3.Location = new System.Drawing.Point(575, 107);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(69, 25);
             this.label3.TabIndex = 7;
@@ -126,7 +127,7 @@
             this.deleteBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.deleteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deleteBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(40)))), ((int)(((byte)(57)))));
-            this.deleteBtn.Location = new System.Drawing.Point(540, 340);
+            this.deleteBtn.Location = new System.Drawing.Point(632, 296);
             this.deleteBtn.Margin = new System.Windows.Forms.Padding(6);
             this.deleteBtn.Name = "deleteBtn";
             this.deleteBtn.Size = new System.Drawing.Size(180, 44);
@@ -142,7 +143,7 @@
             this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(40)))), ((int)(((byte)(57)))));
-            this.button2.Location = new System.Drawing.Point(540, 402);
+            this.button2.Location = new System.Drawing.Point(632, 358);
             this.button2.Margin = new System.Windows.Forms.Padding(6);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(180, 44);
@@ -151,27 +152,38 @@
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.editButton);
             // 
+            // LoadingText
+            // 
+            this.LoadingText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.LoadingText.AutoSize = true;
+            this.LoadingText.Location = new System.Drawing.Point(675, 181);
+            this.LoadingText.Name = "LoadingText";
+            this.LoadingText.Size = new System.Drawing.Size(95, 25);
+            this.LoadingText.TabIndex = 10;
+            this.LoadingText.Text = "Loading...";
+            this.LoadingText.Visible = false;
+            // 
             // MainForm
             // 
             this.AcceptButton = this.button1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(40)))), ((int)(((byte)(57)))));
-            this.ClientSize = new System.Drawing.Size(834, 461);
+            this.ClientSize = new System.Drawing.Size(1018, 533);
+            this.Controls.Add(this.LoadingText);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.deleteBtn);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.peopleListBox);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.surnameBox);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.nameBox);
+            this.Controls.Add(this.surnameBox);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(183)))));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(6);
-            this.MaximumSize = new System.Drawing.Size(850, 1280);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Main Form";
@@ -191,6 +203,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button deleteBtn;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label LoadingText;
     }
 }
 

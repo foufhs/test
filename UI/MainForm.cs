@@ -23,8 +23,10 @@ namespace UI
         public MainForm()
         {
             InitializeComponent();
+            LoadingText.Show();
             LoadListData();
             WireUpList();
+            LoadingText.Hide();
         }
 
         private void WireUpList()
@@ -53,12 +55,13 @@ namespace UI
 
             
                 GlobalConfig.Connections.CreatePerson(model);
-                
+
+                LoadingText.Show();
                 nameBox.Text = "";
                 surnameBox.Text = "";
                 LoadListData();
                 WireUpList();
-
+                LoadingText.Hide();
             }
             
 
@@ -86,8 +89,10 @@ namespace UI
                 
                 
             }
+            LoadingText.Show();
             LoadListData();
             WireUpList();
+            LoadingText.Hide();
         }
 
         private bool ValidateForm()
@@ -112,9 +117,11 @@ namespace UI
                 //this.Hide();
                //  button1.Enabled = false;
                 editForm.ShowDialog();
+                LoadingText.Show();
                 LoadListData();
                 WireUpList();
-               
+                LoadingText.Hide();
+
             }
 
 
