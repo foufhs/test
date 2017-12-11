@@ -24,6 +24,7 @@ namespace UI
         {
             InitializeComponent();
             LoadingText.Show();
+            this.Update();
             LoadListData();
             WireUpList();
             LoadingText.Hide();
@@ -57,10 +58,12 @@ namespace UI
                 GlobalConfig.Connections.CreatePerson(model);
 
                 LoadingText.Show();
+                this.Update();
                 nameBox.Text = "";
                 surnameBox.Text = "";
                 LoadListData();
                 WireUpList();
+                nameBox.Select();
                 LoadingText.Hide();
             }
             
@@ -75,6 +78,8 @@ namespace UI
         /// <param name="e"></param>        
         private void deleteBtn_Click(object sender, EventArgs e)
         {
+            int selectedIndex = 0;
+
             PersonData model = (PersonData)peopleListBox.SelectedItem;
             if (model != null)
             {
@@ -83,16 +88,19 @@ namespace UI
                                      MessageBoxButtons.YesNo);
                 if (confirmResult == DialogResult.Yes)
                 {
-                           
+                    selectedIndex = peopleListBox.SelectedIndex;
                         GlobalConfig.Connections.DeletePerson(model).ToString();
                 }
                 
                 
             }
+            
             LoadingText.Show();
+            this.Update();
             LoadListData();
             WireUpList();
-            LoadingText.Hide();
+            peopleListBox.SetSelected(selectedIndex,true);
+            LoadingText.Hide();            
         }
 
         private bool ValidateForm()
@@ -114,10 +122,10 @@ namespace UI
             if (model != null)
             {
                 EditPersonForm editForm = new EditPersonForm(model);
-                //this.Hide();
-               //  button1.Enabled = false;
                 editForm.ShowDialog();
                 LoadingText.Show();
+                this.Update();
+                System.Threading.Thread.Sleep(3000);
                 LoadListData();
                 WireUpList();
                 LoadingText.Hide();
@@ -127,5 +135,7 @@ namespace UI
 
 
         }
+
+     
     }
 }

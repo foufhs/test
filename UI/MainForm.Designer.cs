@@ -72,7 +72,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(180, 44);
             this.button1.TabIndex = 3;
-            this.button1.Text = "Add";
+            this.button1.Text = "&Add";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.addButton);
             // 
@@ -110,6 +110,7 @@
             this.peopleListBox.Size = new System.Drawing.Size(287, 105);
             this.peopleListBox.Sorted = true;
             this.peopleListBox.TabIndex = 6;
+            this.peopleListBox.DoubleClick += new System.EventHandler(this.editButton);
             // 
             // label3
             // 
@@ -132,7 +133,7 @@
             this.deleteBtn.Name = "deleteBtn";
             this.deleteBtn.Size = new System.Drawing.Size(180, 44);
             this.deleteBtn.TabIndex = 8;
-            this.deleteBtn.Text = "Delete";
+            this.deleteBtn.Text = "&Delete";
             this.deleteBtn.UseVisualStyleBackColor = false;
             this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
             // 
@@ -148,7 +149,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(180, 44);
             this.button2.TabIndex = 9;
-            this.button2.Text = "Edit";
+            this.button2.Text = "&Edit";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.editButton);
             // 
@@ -156,12 +157,11 @@
             // 
             this.LoadingText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.LoadingText.AutoSize = true;
-            this.LoadingText.Location = new System.Drawing.Point(675, 181);
+            this.LoadingText.Location = new System.Drawing.Point(465, 274);
             this.LoadingText.Name = "LoadingText";
             this.LoadingText.Size = new System.Drawing.Size(95, 25);
             this.LoadingText.TabIndex = 10;
             this.LoadingText.Text = "Loading...";
-            this.LoadingText.Visible = false;
             // 
             // MainForm
             // 
