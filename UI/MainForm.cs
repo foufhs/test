@@ -75,7 +75,9 @@ namespace UI
         /// Delete Button Functionality
         /// </summary>
         /// <param name="sender"></param>
-        /// <param name="e"></param>        
+        /// <param name="e"></param>    
+        /// 
+      
         private void deleteBtn_Click(object sender, EventArgs e)
         {
             int selectedIndex = 0;
@@ -99,6 +101,7 @@ namespace UI
             this.Update();
             LoadListData();
             WireUpList();
+            peopleListBox.ClearSelected();
             peopleListBox.SetSelected(selectedIndex,true);
             LoadingText.Hide();            
         }
