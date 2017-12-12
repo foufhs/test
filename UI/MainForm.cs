@@ -52,11 +52,8 @@ namespace UI
             {
                 PersonData model = new PersonData();
                 model.Name = nameBox.Text;
-                model.Surname = surnameBox.Text;
-
-            
+                model.Surname = surnameBox.Text;            
                 GlobalConfig.Connections.CreatePerson(model);
-
                 LoadingText.Show();
                 this.Update();
                 nameBox.Text = "";
@@ -105,6 +102,7 @@ namespace UI
             if (selectedIndex == 0) { selectedIndex++; }
             selectedIndex--;
             peopleListBox.SetSelected(selectedIndex,true);
+            peopleListBox.TopIndex = peopleListBox.SelectedIndex;
             LoadingText.Hide();            
         }
 
@@ -123,17 +121,27 @@ namespace UI
         /// <param name="e"></param>
         private void editButton(object sender, EventArgs e)
         {
+            int selectedIndex = 0;
             PersonData model = (PersonData)peopleListBox.SelectedItem;
             if (model != null)
             {
+                selectedIndex = peopleListBox.SelectedIndex;
                 EditPersonForm editForm = new EditPersonForm(model);
+                editForm.Opacity = 0;
                 editForm.ShowDialog();
                 LoadingText.Show();
                 this.Update();                
                 LoadListData();
                 WireUpList();
+                peopleListBox.ClearSelected();
+                peopleListBox.SetSelected(selectedIndex, true);
+                peopleListBox.TopIndex = peopleListBox.SelectedIndex;
                 LoadingText.Hide();
 
+            }
+            else
+            {
+                MessageBox.Show("Please do select an entry!");
             }
 
 
