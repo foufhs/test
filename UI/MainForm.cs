@@ -102,6 +102,8 @@ namespace UI
             LoadListData();
             WireUpList();
             peopleListBox.ClearSelected();
+            if (selectedIndex == 0) { selectedIndex++; }
+            selectedIndex--;
             peopleListBox.SetSelected(selectedIndex,true);
             LoadingText.Hide();            
         }
@@ -127,8 +129,7 @@ namespace UI
                 EditPersonForm editForm = new EditPersonForm(model);
                 editForm.ShowDialog();
                 LoadingText.Show();
-                this.Update();
-                System.Threading.Thread.Sleep(3000);
+                this.Update();                
                 LoadListData();
                 WireUpList();
                 LoadingText.Hide();
