@@ -91,7 +91,7 @@ namespace UI
                 if (confirmResult == DialogResult.Yes)
                 {
                     selectedIndex = peopleListBox.SelectedIndex;
-                        GlobalConfig.Connections.DeletePerson(model).ToString();
+                    GlobalConfig.Connections.DeletePerson(model).ToString();
                 }
                 
                 
@@ -122,8 +122,9 @@ namespace UI
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void editButton(object sender, EventArgs e)
-        {
+        {   int selectedIndex = 0;
             PersonData model = (PersonData)peopleListBox.SelectedItem;
+            selectedIndex = peopleListBox.SelectedIndex;
             if (model != null)
             {
                 EditPersonForm editForm = new EditPersonForm(model);
@@ -132,6 +133,8 @@ namespace UI
                 this.Update();                
                 LoadListData();
                 WireUpList();
+                peopleListBox.ClearSelected();
+                peopleListBox.SetSelected(selectedIndex, true);
                 LoadingText.Hide();
 
             }
